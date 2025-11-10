@@ -1,15 +1,17 @@
-import { Card } from "../../ui/dashboard/cards";
 import RevenueChart from "../../ui/dashboard/revenue-chart";
 import LatestInvoices from "../../ui/dashboard/latest-invoices";
 import { lusitana } from "../../ui/fonts";
-import {fetchCardData } from "../../lib/data";
 import { Suspense } from "react";
-import { CardsSkeleton, RevenueChartSkeleton } from "@/app/ui/skeletons";
-import { LatestInvoicesSkeleton } from "@/app/ui/skeletons";
+import { CardsSkeleton, RevenueChartSkeleton, LatestInvoicesSkeleton } from "@/app/ui/skeletons";
 import CardWrapper from "../cards";
 
 
-export default async function Page(){
+export default async function Page(props: {
+    searchParams?: Promise<{
+        query?:string;
+        page?:string;
+    }>;
+}){
     //const revenue = await fetchRevenue();
     //const latestInvoices = await fetchLatestInvoices();
     // const { numberOfCustomers,
